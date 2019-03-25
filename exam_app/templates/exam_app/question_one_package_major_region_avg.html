@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% load bootstrap3 %}
+
+{% block content %}
+        <h1>Package count per Major Region</h1>
+
+        <canvas id="myChart" width="500" height="400"></canvas>
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+        <script type="text/javascript">
+            $.get('{% url "exam_app:line_chart_json_package_major_region_avg" %}', function(data) {
+                var ctx = $("#myChart").get(0).getContext("2d");
+                new Chart(ctx, {
+                    type: 'bar', data: data
+                });
+            });
+        </script>
+
+        <h1>Leadtime average per Major Region</h1>
+        <canvas id="myChart2" width="500" height="400"></canvas>
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+        <script type="text/javascript">
+            $.get('{% url "exam_app:line_chart_json_package_major_region_avg_time" %}', function(data) {
+                var ctx = $("#myChart2").get(0).getContext("2d");
+                new Chart(ctx, {
+                    type: 'bar', data: data
+                });
+            });
+        </script>
+{% endblock %}

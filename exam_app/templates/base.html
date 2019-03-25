@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+            <h1>Django CRUD Scaffold</h1>
+            <p>Default template for generated CRUD scaffold.  You should create your own base.html in your template root, with a block named "content".</p>
+            <ul>            
+                <li><a href="{% url 'exam_app:question_one' %}">Question 1 part 1</a></li>
+                <li><a href="{% url 'exam_app:question_one_gma' %}">Question 1 part 2 (GMA)</a></li>
+                <li><a href="{% url 'exam_app:line_chart_package_major_region' %}">Question 1 part 3 (Packages per Major Region))</a></li>
+                <li><a href="{% url 'exam_app:line_chart_package_major_region_avg' %}">Question 1 part 4 (Packages per Major Region avg Time Lead))</a></li>
+            </ul>
+            </div>
+            <div class="content">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>  
+
